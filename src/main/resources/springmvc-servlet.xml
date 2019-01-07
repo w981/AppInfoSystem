@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+     <!-- 使用一键式配置 -->
+     <mvc:annotation-driven>
+     	<!-- 配置消息转换器 -->
+     	<mvc:message-converters>
+     		<!-- 解决返回类型json的中文乱码。StringHttpMessageConverter -->
+     		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+     			<property name="supportedMediaTypes">
+     				<list>
+     					<value>application/json;charset=UTF-8</value>
+     				</list>
+     			</property>
+     		</bean>
+     		<!-- 解决FastJson的时间格式问题，时间戳转换为年月日时分秒。FastJsonHttpMessageConverter -->
+     		<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+     		 	<property name="supportedMediaTypes">
+     				<list>
+     					<value>text/html;charset=UTF-8</value>
+     					<value>application/json</value>
+     				</list>
+     			</property>
+     			<property name="features">
+     				<list>
+     					<value>WriteDateUseDateFormat</value>
+     				</list>
+     			</property>
+     		</bean>
+     	</mvc:message-converters>
+     </mvc:annotation-driven>
+     
+     <!-- 扫包并注入bean -->
+     <context:component-scan base-package="cn.appsys.controller"></context:component-scan>
+     
+     <!-- 配置静态文件 -->
+     <mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
+     
+     <!-- 配置视图解析器 -->
+     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     	<property name="prefix" value="/WEB-INF/jsp/"></property>
+     	<property name="suffix" value=".jsp"></property>
+     </bean>
+     
+     <!-- 配置全局异常 -->
+     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+     	<property name="exceptionMappings">
+     		<props>
+     			<prop key="java.lang.RuntimeException">error</prop>
+     		</props>
+     	</property>
+     </bean>
+     
+</beans>
