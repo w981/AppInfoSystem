@@ -2,3 +2,13 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appsys.dao.BackendUserMapper">
+	<!-- 通过用户名userCode获取用户 -->
+	<select id="getBackendUserByCode" resultType="BackendUser">
+		SELECT user.*,data.valueName AS userTypeName FROM backend_user `user`,data_dictionary `data` 
+			WHERE user.userType = data.valueId AND data.id IN (1,2,3,4,5)
+			<if test="userCode != null and userCode != ''">
+				and userCode = #{userCode}
+			</if>
+	</select>
+</mapper>

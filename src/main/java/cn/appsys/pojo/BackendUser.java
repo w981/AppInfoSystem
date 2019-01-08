@@ -5,23 +5,33 @@ import java.util.Date;
 public class BackendUser {
     private Long id;	//序号
 
-    private String usercode;	//用户编码
+    private String userCode;	//用户编码
 
-    private String username;	//用户名称
+    private String userName;	//用户名称
 
-    private Long usertype;	//用户角色类型（来源于数据字典表，分为：超管、财务、市场、运营、销售）
+    private Long userType;	//用户角色类型（来源于数据字典表，分为：超管、财务、市场、运营、销售）
 
-    private Long createdby;	//创建者（来源本表的id）
+    private Long createdBy;	//创建者（来源本表的id）
 
-    private Date creationdate;	//创建时间
+    private Date creationDate;	//创建时间
 
-    private Long modifyby;	//更新者（来源本表的id）
+    private Long modifyBy;	//更新者（来源本表的id）
 
-    private Date modifydate;	//最新更新时间
+    private Date modifyDate;	//最新更新时间
 
-    private String userpassword;	//用户密码
+    private String userPassword;	//用户密码
+    
+    private String userTypeName;	//用户角色类型名称
+    
+    public String getUserTypeName() {
+		return userTypeName;
+	}
 
-    public Long getId() {
+	public void setUserTypeName(String userTypeName) {
+		this.userTypeName = userTypeName;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -29,67 +39,68 @@ public class BackendUser {
         this.id = id;
     }
 
-    public String getUsercode() {
-        return usercode;
-    }
+	public String getUserCode() {
+		return userCode;
+	}
 
-    public void setUsercode(String usercode) {
-        this.usercode = usercode == null ? null : usercode.trim();
-    }
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public Long getUsertype() {
-        return usertype;
-    }
+	public Long getUserType() {
+		return userType;
+	}
 
-    public void setUsertype(Long usertype) {
-        this.usertype = usertype;
-    }
+	public void setUserType(Long userType) {
+		this.userType = userType;
+	}
 
-    public Long getCreatedby() {
-        return createdby;
-    }
+	public Long getCreatedBy() {
+		return createdBy;
+	}
 
-    public void setCreatedby(Long createdby) {
-        this.createdby = createdby;
-    }
+	public void setCreatedBy(Long createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public Date getCreationdate() {
-        return creationdate;
-    }
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
-    }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    public Long getModifyby() {
-        return modifyby;
-    }
+	public Long getModifyBy() {
+		return modifyBy;
+	}
 
-    public void setModifyby(Long modifyby) {
-        this.modifyby = modifyby;
-    }
+	public void setModifyBy(Long modifyBy) {
+		this.modifyBy = modifyBy;
+	}
 
-    public Date getModifydate() {
-        return modifydate;
-    }
+	public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    public void setModifydate(Date modifydate) {
-        this.modifydate = modifydate;
-    }
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 
-    public String getUserpassword() {
-        return userpassword;
-    }
+	public String getUserPassword() {
+		return userPassword;
+	}
 
-    public void setUserpassword(String userpassword) {
-        this.userpassword = userpassword == null ? null : userpassword.trim();
-    }
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
 }

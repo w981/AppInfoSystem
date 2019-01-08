@@ -7,10 +7,16 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.appsys.dao.BackendUserMapper;
+import cn.appsys.pojo.BackendUser;
 import cn.appsys.service.BackendUserServiceDao;
 @Service
 @Transactional(propagation=Propagation.REQUIRED)
 public class BackendUserServiceDaoImpl implements BackendUserServiceDao {
 	@Resource
 	private BackendUserMapper backendUserMapper;
+
+	@Override
+	public BackendUser getBackendUserByCode(String userCode) {
+		return backendUserMapper.getBackendUserByCode(userCode);
+	}
 }

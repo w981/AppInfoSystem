@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<settings>
 		<setting name="logImpl" value="LOG4J"/>
+		<!-- 设置全局性延迟加载，即所有相关联的实体都被初始化加载 -->
+		<setting name="lazyLoadingEnabled" value="false"/>
 	</settings>
 	<typeAliases>
 		<package name="cn.appsys.pojo"/>

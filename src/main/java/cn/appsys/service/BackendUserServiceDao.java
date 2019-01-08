@@ -1,5 +1,10 @@
 package cn.appsys.service;
 
-public interface BackendUserServiceDao {
 
+import cn.appsys.pojo.BackendUser;
+
+public interface BackendUserServiceDao {
+	
+	//通过用户名userCode获取用户
+	public abstract BackendUser getBackendUserByCode(String userCode);
 }

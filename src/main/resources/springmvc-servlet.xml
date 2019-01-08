@@ -62,4 +62,18 @@
      	</property>
      </bean>
      
+     <!-- 配置拦截器Backend_user -->
+     <mvc:interceptors>
+     	<mvc:interceptor>
+     		<mvc:mapping path="/manager/sys/**"/>
+     		<bean class="cn.appsys.interceptor.SysInterceptor"></bean>
+     	</mvc:interceptor>
+     </mvc:interceptors>
+     <!-- 配置拦截器Dev_user -->
+     <mvc:interceptors>
+     	<mvc:interceptor>
+     		<mvc:mapping path="/dev/sys/**"/>
+     		<bean class="cn.appsys.interceptor.SysInterceptor_02"></bean>
+     	</mvc:interceptor>
+     </mvc:interceptors>
 </beans>
