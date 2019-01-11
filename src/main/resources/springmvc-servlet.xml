@@ -11,69 +11,110 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-        
-     <!-- 使用一键式配置 -->
-     <mvc:annotation-driven>
-     	<!-- 配置消息转换器 -->
-     	<mvc:message-converters>
-     		<!-- 解决返回类型json的中文乱码。StringHttpMessageConverter -->
-     		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-     			<property name="supportedMediaTypes">
-     				<list>
-     					<value>application/json;charset=UTF-8</value>
-     				</list>
-     			</property>
-     		</bean>
-     		<!-- 解决FastJson的时间格式问题，时间戳转换为年月日时分秒。FastJsonHttpMessageConverter -->
-     		<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-     		 	<property name="supportedMediaTypes">
-     				<list>
-     					<value>text/html;charset=UTF-8</value>
-     					<value>application/json</value>
-     				</list>
-     			</property>
-     			<property name="features">
-     				<list>
-     					<value>WriteDateUseDateFormat</value>
-     				</list>
-     			</property>
-     		</bean>
-     	</mvc:message-converters>
-     </mvc:annotation-driven>
-     
-     <!-- 扫包并注入bean -->
-     <context:component-scan base-package="cn.appsys.controller"></context:component-scan>
-     
-     <!-- 配置静态文件 -->
-     <mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
-     
-     <!-- 配置视图解析器 -->
-     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-     	<property name="prefix" value="/WEB-INF/jsp/"></property>
-     	<property name="suffix" value=".jsp"></property>
-     </bean>
-     
-     <!-- 配置全局异常 -->
-     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-     	<property name="exceptionMappings">
-     		<props>
-     			<prop key="java.lang.RuntimeException">error</prop>
-     		</props>
-     	</property>
-     </bean>
-     
-     <!-- 配置拦截器Backend_user -->
-     <mvc:interceptors>
-     	<mvc:interceptor>
-     		<mvc:mapping path="/manager/sys/**"/>
-     		<bean class="cn.appsys.interceptor.SysInterceptor"></bean>
-     	</mvc:interceptor>
-     </mvc:interceptors>
-     <!-- 配置拦截器Dev_user -->
-     <mvc:interceptors>
-     	<mvc:interceptor>
-     		<mvc:mapping path="/dev/sys/**"/>
-     		<bean class="cn.appsys.interceptor.SysInterceptor_02"></bean>
-     	</mvc:interceptor>
-     </mvc:interceptors>
+
+	<!-- 使用一键式配置 -->
+	<mvc:annotation-driven>
+		<!-- 配置消息转换器 -->
+		<mvc:message-converters>
+			<!-- 解决返回类型json的中文乱码。StringHttpMessageConverter -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<!-- 解决FastJson的时间格式问题，时间戳转换为年月日时分秒。FastJsonHttpMessageConverter -->
+			<bean
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json</value>
+					</list>
+				</property>
+				<property name="features">
+					<list>
+						<value>WriteDateUseDateFormat</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 扫包并注入bean -->
+	<context:component-scan base-package="cn.appsys.controller"></context:component-scan>
+	
+	<!-- 配置多视图解析器，允许同样的内容呈现不同的view -->
+	<bean id="cnManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<!--  favorParameter,默认true，表示支持参数匹配，可以根据请求参数的值确定MIIME类型，默认请求参数为format。例：/user/view?id=12&format=json -->
+		<property name="favorParameter" value="true" />
+		<!-- 设置为true以忽略对Accept Header的支持 -->
+		<property name="ignoreAcceptHeader" value="true" />
+		<!-- 在没有扩展名时即: "/user/1" 时的默认展现形式 -->
+		<property name="defaultContentType" value="text/html" />
+		<!-- 扩展名至mimeType的映射,即 /user.json => application/json
+		spring3.1的配置模式 -->
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json;charset=UTF-8" />
+				<entry key="xml" value="application/xml;charset=UTF-8" />
+				<entry key="html" value="text/html;charset=UTF-8" />
+			</map>
+		</property>
+	</bean>
+	
+	<!-- ContentNegotiatingViewResolver 中的 favorParameter、ignoreAcceptHeader、mediaTypes等在4.1版时即为即将删除；
+	在4.3版本中已无这些属性；通过参考 此文 和 文章2 了解到 这些属性已移至 ContentNegotiationManagerFactoryBean 这个类中-->
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="contentNegotiationManager" ref="cnManager"></property>
+		<!-- 配置视图解析器 -->
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+					<property name="prefix" value="/WEB-INF/jsp/"/>
+					<property name="suffix" value=".jsp"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- jsp视图解析器 -->
+<!-- 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean> -->
+
+	<!-- 配置静态文件 -->
+	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
+
+	<!-- 配置全局异常 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.RuntimeException">error</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5000000"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
+	<!-- 配置拦截器Backend_user -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/manager/sys/**" />
+			<bean class="cn.appsys.interceptor.SysInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- 配置拦截器Dev_user -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/dev/flatform/app/**" />
+			<bean class="cn.appsys.interceptor.SysInterceptor_02"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

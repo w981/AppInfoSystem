@@ -3,83 +3,84 @@ package cn.appsys.pojo;
 import java.util.Date;
 //app分类表
 public class AppCategory {
-    private Long id;	//序号
+    private int id;	//序号
 
-    private String categorycode;	//分类编码
+    private String categoryCode;	//分类编码
 
-    private String categoryname;	//分类名称
+    private String categoryName;	//分类名称
 
-    private Long parentid;	//父级节点id（就是这个表里分类的id）
+    private int parentId;	//父级节点id（就是这个表里分类的id）
 
-    private Long createdby;	//创建者（backend_user用户表的id）
+    private int createdBy;	//创建者（backend_user用户表的id）
 
-    private Date creationtime;	//创建时间
+    private Date creationTime;	//创建时间
 
-    private Long modifyby;	//更新者（backend_user用户表的id）
+    private int modifyBy;	//更新者（backend_user用户表的id）
 
-    private Date modifydate;	//最新更新时间
+    private Date modifyDate;	//最新更新时间
 
-    public Long getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getCategorycode() {
-        return categorycode;
-    }
+	public String getCategoryCode() {
+		return categoryCode;
+	}
 
-    public void setCategorycode(String categorycode) {
-        this.categorycode = categorycode == null ? null : categorycode.trim();
-    }
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
 
-    public String getCategoryname() {
-        return categoryname;
-    }
+	public String getCategoryName() {
+		return categoryName;
+	}
 
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname == null ? null : categoryname.trim();
-    }
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 
-    public Long getParentid() {
-        return parentid;
-    }
+	public int getParentId() {
+		return parentId;
+	}
 
-    public void setParentid(Long parentid) {
-        this.parentid = parentid;
-    }
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
+	}
 
-    public Long getCreatedby() {
-        return createdby;
-    }
+	public int getCreatedBy() {
+		return createdBy;
+	}
 
-    public void setCreatedby(Long createdby) {
-        this.createdby = createdby;
-    }
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public Date getCreationtime() {
-        return creationtime;
-    }
+	public Date getCreationTime() {
+		return creationTime;
+	}
 
-    public void setCreationtime(Date creationtime) {
-        this.creationtime = creationtime;
-    }
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
 
-    public Long getModifyby() {
-        return modifyby;
-    }
+	public int getModifyBy() {
+		return modifyBy;
+	}
 
-    public void setModifyby(Long modifyby) {
-        this.modifyby = modifyby;
-    }
+	public void setModifyBy(int modifyBy) {
+		this.modifyBy = modifyBy;
+	}
 
-    public Date getModifydate() {
-        return modifydate;
-    }
+	public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    public void setModifydate(Date modifydate) {
-        this.modifydate = modifydate;
-    }
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+
 }

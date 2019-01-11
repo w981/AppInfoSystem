@@ -4,244 +4,305 @@ import java.math.BigDecimal;
 import java.util.Date;
 //app信息表
 public class AppInfo {
-    private Long id;	//序号
+    private int id;	//序号
 
-    private String softwarename;	//app名称
+    private String softwareName;	//app名称
 
-    private String apkname;	//apk名称（唯一，下载下来时的名字）
+    private String APKName;	//apk名称（唯一，下载下来时的名字）
 
-    private String supportrom;	//支持ROM（版本要求）
+    private String supportROM;	//支持ROM（版本要求）
 
-    private String interfacelanguage;	//界面语言
+    private String interfaceLanguage;	//界面语言
 
-    private BigDecimal softwaresize;	//软件大小
+    private BigDecimal softwareSize;	//软件大小
 
-    private Date updatedate;	//更新日期
+    private Date updateDate;	//更新日期
 
-    private Long devid;	//开发者id（来源dev_user表的开发者id）
+    private int devId;	//开发者id（来源dev_user表的开发者id）
 
-    private String appinfo;	//应用简介
+    private String appInfo;	//应用简介
 
-    private Long status;	//状态（来源data_dictionary表，1 待审核 2 审核通过 
+    private int status;	//状态（来源data_dictionary表，1 待审核 2 审核通过 
     								//3 审核不通过 4 已上架 5 已下架）
 
-    private Date onsaledate;	//上架时间
+    private Date onsaleDate;	//上架时间
 
-    private Date offsaledate;	//下架时间
+    private Date offsaleDate;	//下架时间
 
-    private Long flatformid;	//所属平台（来源data_dictionary表，1手机，2平板，3通用）
+    private int flatformId;	//所属平台（来源data_dictionary表，1手机，2平板，3通用）
 
-    private Long categorylevel3;	//所属三级分类（来源app_category，app分类表parentId）
+    private int categoryLevel3;	//所属三级分类（来源app_category，app分类表parentId）
 
-    private Long downloads;	//下载量
+    private int downloads;	//下载量
 
-    private Long createdby;	//创建者（来源dev_user开发者信息表的用户id）
+    private int createdBy;	//创建者（来源dev_user开发者信息表的用户id）
 
-    private Date creationdate;	//创建时间
+    private Date creationDate;	//创建时间
 
-    private Long modifyby;	//更新者（来源dev_user开发者信息表的用户id）
+    private int modifyBy;	//更新者（来源dev_user开发者信息表的用户id）
 
-    private Date modifydate;	//最新更新时间
+    private Date modifyDate;	//最新更新时间
 
-    private Long categorylevel1;	//所属一级分类（来源app_category，app分类表parentId）
+    private int categoryLevel1;	//所属一级分类（来源app_category，app分类表parentId）
 
-    private Long categorylevel2;	//所属二级分类（来源app_categoryapp分类表parentId）
+    private int categoryLevel2;	//所属二级分类（来源app_categoryapp分类表parentId）
 
-    private String logopicpath;	//logo图片url路径
+    private String logopicPath;	//logo图片url路径
 
-    private String logolocpath;	//logo图片服务器存储路径
+    private String logolocPath;	//logo图片服务器存储路径
 
-    private Long versionid;	//最新的版本id （来源aap_versionapp版本表的id）
+    private int versionId;	//最新的版本id （来源aap_versionapp版本表的id）
 
-    public Long getId() {
-        return id;
-    }
+	private String statusName;	//状态名称
+	
+	private String flatformName;	//所属平台名称
+	
+	private String categoryLevel1Name;	//分类1名称
+	
+	private String categoryLevel2Name;	//分类2名称
+	
+	private String categoryLevel3Name;	//分类3名称
+    
+    private String versionNo;	//版本号
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getSoftwarename() {
-        return softwarename;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setSoftwarename(String softwarename) {
-        this.softwarename = softwarename == null ? null : softwarename.trim();
-    }
+	public String getSoftwareName() {
+		return softwareName;
+	}
 
-    public String getApkname() {
-        return apkname;
-    }
+	public void setSoftwareName(String softwareName) {
+		this.softwareName = softwareName;
+	}
 
-    public void setApkname(String apkname) {
-        this.apkname = apkname == null ? null : apkname.trim();
-    }
+	public String getAPKName() {
+		return APKName;
+	}
 
-    public String getSupportrom() {
-        return supportrom;
-    }
+	public void setAPKName(String aPKName) {
+		APKName = aPKName;
+	}
 
-    public void setSupportrom(String supportrom) {
-        this.supportrom = supportrom == null ? null : supportrom.trim();
-    }
+	public String getSupportROM() {
+		return supportROM;
+	}
 
-    public String getInterfacelanguage() {
-        return interfacelanguage;
-    }
+	public void setSupportROM(String supportROM) {
+		this.supportROM = supportROM;
+	}
 
-    public void setInterfacelanguage(String interfacelanguage) {
-        this.interfacelanguage = interfacelanguage == null ? null : interfacelanguage.trim();
-    }
+	public String getInterfaceLanguage() {
+		return interfaceLanguage;
+	}
 
-    public BigDecimal getSoftwaresize() {
-        return softwaresize;
-    }
+	public void setInterfaceLanguage(String interfaceLanguage) {
+		this.interfaceLanguage = interfaceLanguage;
+	}
 
-    public void setSoftwaresize(BigDecimal softwaresize) {
-        this.softwaresize = softwaresize;
-    }
+	public BigDecimal getSoftwareSize() {
+		return softwareSize;
+	}
 
-    public Date getUpdatedate() {
-        return updatedate;
-    }
+	public void setSoftwareSize(BigDecimal softwareSize) {
+		this.softwareSize = softwareSize;
+	}
 
-    public void setUpdatedate(Date updatedate) {
-        this.updatedate = updatedate;
-    }
+	public Date getUpdateDate() {
+		return updateDate;
+	}
 
-    public Long getDevid() {
-        return devid;
-    }
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-    public void setDevid(Long devid) {
-        this.devid = devid;
-    }
+	public int getDevId() {
+		return devId;
+	}
 
-    public String getAppinfo() {
-        return appinfo;
-    }
+	public void setDevId(int devId) {
+		this.devId = devId;
+	}
 
-    public void setAppinfo(String appinfo) {
-        this.appinfo = appinfo == null ? null : appinfo.trim();
-    }
+	public String getAppInfo() {
+		return appInfo;
+	}
 
-    public Long getStatus() {
-        return status;
-    }
+	public void setAppInfo(String appInfo) {
+		this.appInfo = appInfo;
+	}
 
-    public void setStatus(Long status) {
-        this.status = status;
-    }
+	public int getStatus() {
+		return status;
+	}
 
-    public Date getOnsaledate() {
-        return onsaledate;
-    }
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
-    public void setOnsaledate(Date onsaledate) {
-        this.onsaledate = onsaledate;
-    }
+	public Date getOnsaleDate() {
+		return onsaleDate;
+	}
 
-    public Date getOffsaledate() {
-        return offsaledate;
-    }
+	public void setOnsaleDate(Date onsaleDate) {
+		this.onsaleDate = onsaleDate;
+	}
 
-    public void setOffsaledate(Date offsaledate) {
-        this.offsaledate = offsaledate;
-    }
+	public Date getOffsaleDate() {
+		return offsaleDate;
+	}
 
-    public Long getFlatformid() {
-        return flatformid;
-    }
+	public void setOffsaleDate(Date offsaleDate) {
+		this.offsaleDate = offsaleDate;
+	}
 
-    public void setFlatformid(Long flatformid) {
-        this.flatformid = flatformid;
-    }
+	public int getFlatformId() {
+		return flatformId;
+	}
 
-    public Long getCategorylevel3() {
-        return categorylevel3;
-    }
+	public void setFlatformId(int flatformId) {
+		this.flatformId = flatformId;
+	}
 
-    public void setCategorylevel3(Long categorylevel3) {
-        this.categorylevel3 = categorylevel3;
-    }
+	public int getCategoryLevel3() {
+		return categoryLevel3;
+	}
 
-    public Long getDownloads() {
-        return downloads;
-    }
+	public void setCategoryLevel3(int categoryLevel3) {
+		this.categoryLevel3 = categoryLevel3;
+	}
 
-    public void setDownloads(Long downloads) {
-        this.downloads = downloads;
-    }
+	public int getDownloads() {
+		return downloads;
+	}
 
-    public Long getCreatedby() {
-        return createdby;
-    }
+	public void setDownloads(int downloads) {
+		this.downloads = downloads;
+	}
 
-    public void setCreatedby(Long createdby) {
-        this.createdby = createdby;
-    }
+	public int getCreatedBy() {
+		return createdBy;
+	}
 
-    public Date getCreationdate() {
-        return creationdate;
-    }
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
-    }
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-    public Long getModifyby() {
-        return modifyby;
-    }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    public void setModifyby(Long modifyby) {
-        this.modifyby = modifyby;
-    }
+	public int getModifyBy() {
+		return modifyBy;
+	}
 
-    public Date getModifydate() {
-        return modifydate;
-    }
+	public void setModifyBy(int modifyBy) {
+		this.modifyBy = modifyBy;
+	}
 
-    public void setModifydate(Date modifydate) {
-        this.modifydate = modifydate;
-    }
+	public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    public Long getCategorylevel1() {
-        return categorylevel1;
-    }
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 
-    public void setCategorylevel1(Long categorylevel1) {
-        this.categorylevel1 = categorylevel1;
-    }
+	public int getCategoryLevel1() {
+		return categoryLevel1;
+	}
 
-    public Long getCategorylevel2() {
-        return categorylevel2;
-    }
+	public void setCategoryLevel1(int categoryLevel1) {
+		this.categoryLevel1 = categoryLevel1;
+	}
 
-    public void setCategorylevel2(Long categorylevel2) {
-        this.categorylevel2 = categorylevel2;
-    }
+	public int getCategoryLevel2() {
+		return categoryLevel2;
+	}
 
-    public String getLogopicpath() {
-        return logopicpath;
-    }
+	public void setCategoryLevel2(int categoryLevel2) {
+		this.categoryLevel2 = categoryLevel2;
+	}
 
-    public void setLogopicpath(String logopicpath) {
-        this.logopicpath = logopicpath == null ? null : logopicpath.trim();
-    }
+	public String getLogopicPath() {
+		return logopicPath;
+	}
 
-    public String getLogolocpath() {
-        return logolocpath;
-    }
+	public void setLogopicPath(String logopicPath) {
+		this.logopicPath = logopicPath;
+	}
 
-    public void setLogolocpath(String logolocpath) {
-        this.logolocpath = logolocpath == null ? null : logolocpath.trim();
-    }
+	public String getLogolocPath() {
+		return logolocPath;
+	}
 
-    public Long getVersionid() {
-        return versionid;
-    }
+	public void setLogolocPath(String logolocPath) {
+		this.logolocPath = logolocPath;
+	}
 
-    public void setVersionid(Long versionid) {
-        this.versionid = versionid;
-    }
+	public int getVersionId() {
+		return versionId;
+	}
+
+	public void setVersionId(int versionId) {
+		this.versionId = versionId;
+	}
+
+	public String getStatusName() {
+		return statusName;
+	}
+
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+
+	public String getFlatformName() {
+		return flatformName;
+	}
+
+	public void setFlatformName(String flatformName) {
+		this.flatformName = flatformName;
+	}
+
+	public String getCategoryLevel1Name() {
+		return categoryLevel1Name;
+	}
+
+	public void setCategoryLevel1Name(String categoryLevel1Name) {
+		this.categoryLevel1Name = categoryLevel1Name;
+	}
+
+	public String getCategoryLevel2Name() {
+		return categoryLevel2Name;
+	}
+
+	public void setCategoryLevel2Name(String categoryLevel2Name) {
+		this.categoryLevel2Name = categoryLevel2Name;
+	}
+
+	public String getCategoryLevel3Name() {
+		return categoryLevel3Name;
+	}
+
+	public void setCategoryLevel3Name(String categoryLevel3Name) {
+		this.categoryLevel3Name = categoryLevel3Name;
+	}
+
+	public String getVersionNo() {
+		return versionNo;
+	}
+
+	public void setVersionNo(String versionNo) {
+		this.versionNo = versionNo;
+	}
+    
 }

@@ -3,7 +3,7 @@ package cn.appsys.pojo;
 import java.util.Date;
 //开发者信息表
 public class DevUser {
-    private Long id;	//序号
+    private int id;	//序号
 
     private String devCode;	//开发者账号
 
@@ -15,21 +15,21 @@ public class DevUser {
 
     private String devInfo;	//开发者简介
 
-    private Long createdBy;	//创建者(来源backend_user用户表的用户id)
+    private int createdBy;	//创建者(来源backend_user用户表的用户id)
 
     private Date creationDate;	//创建时间
 
-    private Long modifyBy;	//更新者（来源backend_user用户表的用户id）
+    private int modifyBy;	//更新者（来源backend_user用户表的用户id）
 
     private Date modifyDate;	//最新更新时间
 
-    public Long getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getDevCode() {
 		return devCode;
@@ -71,11 +71,11 @@ public class DevUser {
 		this.devInfo = devInfo;
 	}
 
-	public Long getCreatedBy() {
+	public int getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(Long createdBy) {
+	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;
 	}
 
@@ -87,11 +87,11 @@ public class DevUser {
 		this.creationDate = creationDate;
 	}
 
-	public Long getModifyBy() {
+	public int getModifyBy() {
 		return modifyBy;
 	}
 
-	public void setModifyBy(Long modifyBy) {
+	public void setModifyBy(int modifyBy) {
 		this.modifyBy = modifyBy;
 	}
 

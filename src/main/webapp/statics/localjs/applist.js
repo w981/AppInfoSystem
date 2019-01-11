@@ -1,4 +1,4 @@
-$("#queryCategoryLevel1").change(function(){
+/*$("#queryCategoryLevel1").change(function(){
 	var queryCategoryLevel1 = $("#queryCategoryLevel1").val();
 	if(queryCategoryLevel1 != '' && queryCategoryLevel1 != null){
 		$.ajax({
@@ -68,7 +68,7 @@ $(".checkApp").on("click",function(){
 	}else if(status != "1"){
 		alert("该APP应用的状态为：【"+obj.attr("statusname")+"】,不能进行审核操作！");
 	}
-});
+});*/
 
 
 

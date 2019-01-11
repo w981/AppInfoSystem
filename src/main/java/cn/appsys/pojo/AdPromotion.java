@@ -3,113 +3,115 @@ package cn.appsys.pojo;
 import java.util.Date;
 //广告信息表
 public class AdPromotion {
-    private Long id;	//序号
+    private int id;	//序号
     
-    private Long appid;	//appId（app_info表的id）
+    private int appId;	//appId（app_info表的id）
 
-    private String adpicpath;	//广告图片存储路径
+    private String adPicPath;	//广告图片存储路径
 
-    private Long adpv;	//广告点击量
+    private int adPV;	//广告点击量
     
-    private Integer carouselposition;	//轮播位
+    private int carouselPosition;	//轮播位
 
-    private Date starttime;	//起效时间
+    private Date startTime;	//起效时间
 
-    private Date endtime;	//失效时间
+    private Date endTime;	//失效时间
 
-    private Long createdby;	//创建者（backend_user用户表的id）
+    private int createdBy;	//创建者（backend_user用户表的id）
 
-    private Date creationdate;	//创建时间
+    private Date creationDate;	//创建时间
 
-    private Long modifyby;	//更新者（backend_user用户表的id）
+    private int modifyBy;	//更新者（backend_user用户表的id）
 
-    private Date modifydate;	//最新更新时间	
+    private Date modifyDate;	//最新更新时间	
 
-    public Long getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public Long getAppid() {
-        return appid;
-    }
+	public int getAppId() {
+		return appId;
+	}
 
-    public void setAppid(Long appid) {
-        this.appid = appid;
-    }
+	public void setAppId(int appId) {
+		this.appId = appId;
+	}
 
-    public String getAdpicpath() {
-        return adpicpath;
-    }
+	public String getAdPicPath() {
+		return adPicPath;
+	}
 
-    public void setAdpicpath(String adpicpath) {
-        this.adpicpath = adpicpath == null ? null : adpicpath.trim();
-    }
+	public void setAdPicPath(String adPicPath) {
+		this.adPicPath = adPicPath;
+	}
 
-    public Long getAdpv() {
-        return adpv;
-    }
+	public int getAdPV() {
+		return adPV;
+	}
 
-    public void setAdpv(Long adpv) {
-        this.adpv = adpv;
-    }
+	public void setAdPV(int adPV) {
+		this.adPV = adPV;
+	}
 
-    public Integer getCarouselposition() {
-        return carouselposition;
-    }
+	public int getCarouselPosition() {
+		return carouselPosition;
+	}
 
-    public void setCarouselposition(Integer carouselposition) {
-        this.carouselposition = carouselposition;
-    }
+	public void setCarouselPosition(int carouselPosition) {
+		this.carouselPosition = carouselPosition;
+	}
 
-    public Date getStarttime() {
-        return starttime;
-    }
+	public Date getStartTime() {
+		return startTime;
+	}
 
-    public void setStarttime(Date starttime) {
-        this.starttime = starttime;
-    }
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
 
-    public Date getEndtime() {
-        return endtime;
-    }
+	public Date getEndTime() {
+		return endTime;
+	}
 
-    public void setEndtime(Date endtime) {
-        this.endtime = endtime;
-    }
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
 
-    public Long getCreatedby() {
-        return createdby;
-    }
+	public int getCreatedBy() {
+		return createdBy;
+	}
 
-    public void setCreatedby(Long createdby) {
-        this.createdby = createdby;
-    }
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public Date getCreationdate() {
-        return creationdate;
-    }
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
-    }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    public Long getModifyby() {
-        return modifyby;
-    }
+	public int getModifyBy() {
+		return modifyBy;
+	}
 
-    public void setModifyby(Long modifyby) {
-        this.modifyby = modifyby;
-    }
+	public void setModifyBy(int modifyBy) {
+		this.modifyBy = modifyBy;
+	}
 
-    public Date getModifydate() {
-        return modifydate;
-    }
+	public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    public void setModifydate(Date modifydate) {
-        this.modifydate = modifydate;
-    }
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+
+
 }

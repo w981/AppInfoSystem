@@ -110,7 +110,7 @@ $(function(){
 				}else if(data.APKName == "exist"){//账号不可用，错误提示
 					alert("该APKName已存在，不能使用！");
 				}else if(data.APKName == "noexist"){//账号可用，正确提示
-					alert("该APKName可以使用！");
+					/*alert("该APKName可以使用！");*/
 				}
 			},
 			error:function(data){//当访问时候，404，500 等非200的错误状态码

@@ -3,93 +3,95 @@ package cn.appsys.pojo;
 import java.util.Date;
 //数据字典表
 public class DataDictionary {
-    private Long id;	//序号
+    private int id;	//序号
 
-    private String typecode;	//用户类型编码
+    private String typeCode;	//用户类型编码
 
-    private String typename;	//用户类型名称
+    private String typeName;	//用户类型名称
 
-    private Long valueid;	//类型值id
+    private int valueId;	//类型值id
 
-    private String valuename;	//类型值name
+    private String valueName;	//类型值name
     
-    private Long createdby;	//创建者（来源backend_user用户表的id）
+    private int createdBy;	//创建者（来源backend_user用户表的id）
 
-    private Date creationdate;	//创建时间
+    private Date creationDate;	//创建时间
 
-    private Long modifyby;	//更新者（来源backend_user用户表的id）
+    private int modifyBy;	//更新者（来源backend_user用户表的id）
 
-    private Date modifydate;	//最新更新时间
+    private Date modifyDate;	//最新更新时间
 
-    public Long getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public String getTypecode() {
-        return typecode;
-    }
+	public String getTypeCode() {
+		return typeCode;
+	}
 
-    public void setTypecode(String typecode) {
-        this.typecode = typecode == null ? null : typecode.trim();
-    }
+	public void setTypeCode(String typeCode) {
+		this.typeCode = typeCode;
+	}
 
-    public String getTypename() {
-        return typename;
-    }
+	public String getTypeName() {
+		return typeName;
+	}
 
-    public void setTypename(String typename) {
-        this.typename = typename == null ? null : typename.trim();
-    }
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
 
-    public Long getValueid() {
-        return valueid;
-    }
+	public int getValueId() {
+		return valueId;
+	}
 
-    public void setValueid(Long valueid) {
-        this.valueid = valueid;
-    }
+	public void setValueId(int valueId) {
+		this.valueId = valueId;
+	}
 
-    public String getValuename() {
-        return valuename;
-    }
+	public String getValueName() {
+		return valueName;
+	}
 
-    public void setValuename(String valuename) {
-        this.valuename = valuename == null ? null : valuename.trim();
-    }
+	public void setValueName(String valueName) {
+		this.valueName = valueName;
+	}
 
-    public Long getCreatedby() {
-        return createdby;
-    }
+	public int getCreatedBy() {
+		return createdBy;
+	}
 
-    public void setCreatedby(Long createdby) {
-        this.createdby = createdby;
-    }
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public Date getCreationdate() {
-        return creationdate;
-    }
+	public Date getCreationDate() {
+		return creationDate;
+	}
 
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
-    }
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    public Long getModifyby() {
-        return modifyby;
-    }
+	public int getModifyBy() {
+		return modifyBy;
+	}
 
-    public void setModifyby(Long modifyby) {
-        this.modifyby = modifyby;
-    }
+	public void setModifyBy(int modifyBy) {
+		this.modifyBy = modifyBy;
+	}
 
-    public Date getModifydate() {
-        return modifydate;
-    }
+	public Date getModifyDate() {
+		return modifyDate;
+	}
 
-    public void setModifydate(Date modifydate) {
-        this.modifydate = modifydate;
-    }
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+
+
 }

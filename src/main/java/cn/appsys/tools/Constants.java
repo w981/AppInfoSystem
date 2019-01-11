@@ -6,4 +6,7 @@ public class Constants {
 	
 	//记录dev_user是否登录
 	public static final String DEV_USER_SESSION = "devSession";
+	
+	//页面显示数量
+	public final static int pageSize = 5;
 }
