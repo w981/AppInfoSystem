@@ -3,5 +3,45 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.appsys.dao.AppVersionMapper">
+	<!-- 根据id修改发布状态 -->
+	<update id="updateStatus">
+		update app_version set publishStatus = #{appVersion.publishStatus},createdBy = #{appVersion.createdBy}, 
+				creationDate = #{appVersion.creationDate},versionNo = #{appVersion.versionNo},versionSize = #{appVersion.versionSize},
+				versionInfo = #{appVersion.versionInfo},apkLocPath = #{appVersion.apkLocPath},apkFileName = #{appVersion.apkFileName},
+				modifyBy = #{appVersion.modifyBy},modifyDate = #{appVersion.modifyDate},downloadLink = #{appVersion.downloadLink},
+				appId = #{appVersion.appId}
+				where id = #{appVersion.id}
+	</update>
+	<!-- 增加版本信息 -->
+	<insert id="add" parameterType="AppVersion" useGeneratedKeys="true" keyProperty="appVersion.id">
+		insert into app_version(appId,versionNo,versionInfo,publishStatus,downloadLink,versionSize,
+								createdBy,creationDate,modifyBy,modifyDate,apkLocPath,apkFileName)
+				value (#{appVersion.appId},#{appVersion.versionNo},#{appVersion.versionInfo},#{appVersion.publishStatus},
+		#{appVersion.downloadLink},#{appVersion.versionSize},#{appVersion.createdBy},#{appVersion.creationDate},
+		#{appVersion.modifyBy},#{appVersion.modifyDate},#{appVersion.apkLocPath},#{appVersion.apkFileName})
+	</insert>
+	<!-- 查询最新id -->
+	<select id="getId" resultType="Integer">
+		SELECT @@identity
+	</select>
+	<!-- 根据appId获取信息 -->
+	<select id="getAppVsersionByappId" resultType="AppVersion">
+		select v.*,(select i.softwareName from app_info i where i.id = v.appId) as appName,
+		(select d.valueName from data_dictionary d where v.publishStatus = d.valueId and d.TypeCode = 'PUBLISH_STATUS') as publishStatusName
+		from app_version v 
+		where appId = #{appinfoId}
+		order by v.creationDate desc
+	</select>
+	<!-- 根据id获取信息 -->
+	<select id="getAppVsersionById" resultType="AppVersion">
+		select v.*,(select i.softwareName from app_info i where i.id = v.appId) as appName,
+		(select d.valueName from data_dictionary d where v.publishStatus = d.valueId and d.TypeCode = 'PUBLISH_STATUS') as publishStatusName
+		from app_version v 
+		where id = #{versionId}
+	</select>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="Integer">
+		delete from app_version where appId = #{appInfoId}
+	</delete>
 	
 </mapper>

@@ -25,9 +25,9 @@ public class AppInfo {
     private int status;	//状态（来源data_dictionary表，1 待审核 2 审核通过 
     								//3 审核不通过 4 已上架 5 已下架）
 
-    private Date onsaleDate;	//上架时间
+    private Date onSaleDate;	//上架时间
 
-    private Date offsaleDate;	//下架时间
+    private Date offSaleDate;	//下架时间
 
     private int flatformId;	//所属平台（来源data_dictionary表，1手机，2平板，3通用）
 
@@ -47,9 +47,9 @@ public class AppInfo {
 
     private int categoryLevel2;	//所属二级分类（来源app_categoryapp分类表parentId）
 
-    private String logopicPath;	//logo图片url路径
+    private String logoPicPath;	//logo图片url路径
 
-    private String logolocPath;	//logo图片服务器存储路径
+    private String logoLocPath;	//logo图片服务器存储路径
 
     private int versionId;	//最新的版本id （来源aap_versionapp版本表的id）
 
@@ -145,20 +145,20 @@ public class AppInfo {
 		this.status = status;
 	}
 
-	public Date getOnsaleDate() {
-		return onsaleDate;
+	public Date getOnSaleDate() {
+		return onSaleDate;
 	}
 
-	public void setOnsaleDate(Date onsaleDate) {
-		this.onsaleDate = onsaleDate;
+	public void setOnSaleDate(Date onSaleDate) {
+		this.onSaleDate = onSaleDate;
 	}
 
-	public Date getOffsaleDate() {
-		return offsaleDate;
+	public Date getOffSaleDate() {
+		return offSaleDate;
 	}
 
-	public void setOffsaleDate(Date offsaleDate) {
-		this.offsaleDate = offsaleDate;
+	public void setOffSaleDate(Date offSaleDate) {
+		this.offSaleDate = offSaleDate;
 	}
 
 	public int getFlatformId() {
@@ -233,20 +233,21 @@ public class AppInfo {
 		this.categoryLevel2 = categoryLevel2;
 	}
 
-	public String getLogopicPath() {
-		return logopicPath;
+
+	public String getLogoPicPath() {
+		return logoPicPath;
 	}
 
-	public void setLogopicPath(String logopicPath) {
-		this.logopicPath = logopicPath;
+	public void setLogoPicPath(String logoPicPath) {
+		this.logoPicPath = logoPicPath;
 	}
 
-	public String getLogolocPath() {
-		return logolocPath;
+	public String getLogoLocPath() {
+		return logoLocPath;
 	}
 
-	public void setLogolocPath(String logolocPath) {
-		this.logolocPath = logolocPath;
+	public void setLogoLocPath(String logoLocPath) {
+		this.logoLocPath = logoLocPath;
 	}
 
 	public int getVersionId() {

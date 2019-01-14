@@ -7,6 +7,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<setting name="logImpl" value="LOG4J"/>
 		<!-- 设置全局性延迟加载，即所有相关联的实体都被初始化加载 -->
 		<setting name="lazyLoadingEnabled" value="false"/>
+		<!-- 使用jdbc的 getGeneratedKeys获取数据库自增主键值,
+  				就是当mybatis-dao文件中的SQL语句中useGeneratedKeys=true时，就是可以将数据库自增的主键值ID自动赋值给实体类ID -->
+		<setting name="useGeneratedKeys" value="true"/>
+		<!-- 开启驼峰命名转换：table(create_time)转换为Entity{createTime} -->
+		<!-- <setting name="mapUnderscoreToCamelCase" value="true"></setting> -->
 	</settings>
 	<typeAliases>
 		<package name="cn.appsys.pojo"/>

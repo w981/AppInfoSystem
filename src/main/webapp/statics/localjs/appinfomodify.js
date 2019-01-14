@@ -1,4 +1,4 @@
-/*function  loadCategoryLevel(pid,cl,categoryLevel){
+function  loadCategoryLevel(pid,cl,categoryLevel){
 	$.ajax({
 		type:"GET",//请求类型
 		url:"categorylevellist.json",//请求的url
@@ -124,4 +124,4 @@ $(function(){
 });
       
       
-      */
+      

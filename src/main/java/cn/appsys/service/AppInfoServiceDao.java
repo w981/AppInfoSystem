@@ -27,4 +27,14 @@ public interface AppInfoServiceDao {
 	
 	//增加appInfo信息
 	public abstract int addAppInfo(AppInfo appInfo);
+	
+	//修改
+	public abstract int update(AppInfo appInfo);
+	
+	//根据id获取信息
+	public abstract AppInfo getAppInfoById(Integer id);
+	
+	//删除
+	public abstract int delete(Integer appInfoId);
+	
 }

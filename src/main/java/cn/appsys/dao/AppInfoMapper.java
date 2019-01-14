@@ -3,6 +3,7 @@ package cn.appsys.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.aop.aspectj.AspectJPrecedenceInformation;
 
 import cn.appsys.pojo.AppInfo;
 
@@ -27,6 +28,18 @@ public interface AppInfoMapper {
 	//根据APKName获取信息
 	public abstract int getAppInfoByAPKName(@Param("APKName")String APKName);
 	
+	//根据id获取信息
+	public abstract AppInfo getAppInfoById(@Param("id")Integer id);
+	
 	//增加appInfo信息
 	public abstract int addAppInfo(@Param("appInfo")AppInfo appInfo);
+	
+	//修改
+	public abstract int update(@Param("appInfo")AppInfo appInfo);
+	
+	//更新版本
+	public abstract int updateVersionId(@Param("versionId")Integer versionId,@Param("appInfoId")Integer appInfoId);
+	
+	//删除
+	public abstract int delete(@Param("appInfoId")Integer appInfoId);
 }

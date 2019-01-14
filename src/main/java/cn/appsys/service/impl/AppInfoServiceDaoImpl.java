@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,8 +44,21 @@ public class AppInfoServiceDaoImpl implements AppInfoServiceDao {
 
 	@Override
 	public int addAppInfo(AppInfo appInfo) {
-		int count = appInfoMapper.addAppInfo(appInfo);
-		return count;
+		return appInfoMapper.addAppInfo(appInfo);
 	}
 
+	@Override
+	public int update(AppInfo appInfo) {
+		return appInfoMapper.update(appInfo);
+	}
+	
+	@Override
+	public AppInfo getAppInfoById(Integer id) {
+		return appInfoMapper.getAppInfoById(id);
+	}
+
+	@Override
+	public int delete(Integer appInfoId) {
+		return appInfoMapper.delete(appInfoId);
+	}
 }
